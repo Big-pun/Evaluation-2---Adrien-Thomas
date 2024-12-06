@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <div v-else class="flex flex-wrap justify-center gap-6 min-h-screen">
+    <div v-else class="flex flex-wrap justify-center gap-6">
       <img
         src="../../public/bibliotheque.webp"
         alt="Bibliothèque"

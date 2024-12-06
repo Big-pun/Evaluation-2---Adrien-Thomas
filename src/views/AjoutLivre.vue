@@ -4,14 +4,14 @@
     alt="Collection de livres"
     class="absolute inset-0 w-full h-full object-cover opacity-50"
   />
-  <div class="relative z-10 col-span-12 min-h-screen">
+  <div class="relative z-10 col-span-12">
     <input
       v-model="requete"
       @input="chercherLivres"
       placeholder="Rechercher un livre par titre"
-      class="w-full p-3 mb-6 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+      class=" text-black w-full p-3 mb-6 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
     />
-    <p class=" grid grid-row-2 space-y-96">
+    <p class=" grid grid-row-2 space-y-96 mt-12">
       <span class="text-8xl m-4 text-left animate-fade-in-down">Ajouter</span>
       <span class="text-8xl m-4 text-right animate-fade-in-up">un livre</span>
     </p>
@@ -24,7 +24,7 @@
         v-for="livre in resultats"
         :key="livre.id"
         @click="ajouterLivreEtEffacerResultats(livre)"
-        class="carte-livre p-6 bg-white shadow-lg rounded-lg text-center cursor-pointer hover:shadow-xl transition-shadow duration-300"
+        class="carte-livre p-6 bg-white shadow-lg rounded-lg text-center cursor-pointer hover:shadow-xl transition-shadow duration-300 relative z-20"
       >
         <img
           :src="livre.volumeInfo.imageLinks?.thumbnail"
