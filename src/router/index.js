@@ -12,8 +12,8 @@ const router = createRouter({
       component: Accueil,
     },
     {
-      path: '/ajout',
-      name: 'ajout',
+      path: '/ajouter',
+      name: 'ajouter',
       component: AjoutLivre,
     },
     {
