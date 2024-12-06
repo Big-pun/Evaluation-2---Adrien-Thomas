@@ -5,7 +5,7 @@ const livres = ref([])
 export function utiliserCollection() {
   
     const ajouterLivre = (livre) => {
-        livres.value.push(livre)
+        livres.value.push({ ...livre, lu: false })
     }
     
     const changerEtatLecture = (id) => {
