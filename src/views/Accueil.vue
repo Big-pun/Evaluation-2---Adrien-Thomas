@@ -1,12 +1,12 @@
 <template>
-  <div class="col-span-12">
-    <div v-if="livres.length === 0" class="mt-24">
+  <div class="col-span-12 ">
+    <div v-if="livres.length === 0">
       <img
         src="../../public/bibliotheque-vide.jpg"
         alt="Collection vide"
-        class="absolute inset-0 w-full h-full object-cover opacity-50"
+        class="absolute inset-0 w-full h-full object-cover opacity-50 min-h-screen"
       />
-      <div class="relative z-10 grid grid-row-2 space-y-96">
+      <div class="relative z-10 grid grid-row-2 space-y-96 mt-24">
         <p class="text-8xl m-4 text-left animate-fade-in-down">
           Votre collection
         </p>
