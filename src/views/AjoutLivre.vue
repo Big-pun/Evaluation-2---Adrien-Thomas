@@ -1,10 +1,27 @@
 <template>
-  <h1>Ajouter un livre</h1>
+  <div class="col-span-12">
+    <h1>Ajouter un livre</h1>
+    <input v-model="requete" @input="chercherLivres" placeholder="Rechercher un livre par titre"/>
+
+    <div v-for="livre in resultats" :key="livre.id" @click="ajouterLivre(livre)">
+      <img :src="livre.volumeInfo.imageLinks?.thumbnail" :alt="livre.volumeInfo.title" />
+      <p>{{ livre.volumeInfo.title }}</p>
+    </div>
+  </div>
 </template>
 
 <script setup>
+import { ref } from "vue";
+import { chercherLivresGoogle } from "../composables/fetchGoogleBooks";
+import { utiliserCollection } from "@/composables/utiliserCollection";
+
+const requete = ref("");
+const resultats = ref([]);
+const { ajouterLivre } = utiliserCollection();
+
+const chercherLivres = async () => {
+  resultats.value = await chercherLivresGoogle(requete.value);
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

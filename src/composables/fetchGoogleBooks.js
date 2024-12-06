@@ -1,6 +1,11 @@
-export async function fetchGoogleBooks(query) {
-    const formattedQuery = query.replace(/\s/g, '+');
-    const url = `https://www.googleapis.com/books/v1/volumes?q=${formattedQuery}`;
+export async function chercherLivresGoogle(requete) {
+    if (typeof requete !== 'string') {
+        console.error('La requête doit être une chaîne de caractères');
+        return [];
+    }
+
+    const requeteFormatee = requete.replace(/\s/g, '+');
+    const url = `https://www.googleapis.com/books/v1/volumes?q=${requeteFormatee}`;
 
     try {
         const response = await fetch(url);
