@@ -15,13 +15,17 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
 import { utiliserCollection } from '@/composables/utiliserCollection'
 
 const route = useRoute()
 const { obtenirLivreParId } = utiliserCollection()
-const livre = ref(obtenirLivreParId(route.params.id))
+const livre = ref(null)
+
+watchEffect(() => {
+  livre.value = obtenirLivreParId(route.params.id)
+})
 </script>
 
 <style scoped></style>
