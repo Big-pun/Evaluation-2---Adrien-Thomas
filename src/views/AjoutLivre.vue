@@ -8,7 +8,7 @@
               class="h-fit text-black w-full p-3 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
           </div>
 
-          <div class="grid grid-row-3 h-full">
+          <div class="grid grid-row-3 h-full container">
             <h1 class="text-8xl m-4 flex flex-row flex-wrap animate-fade-in-down">
               Ajouter un livre
             </h1>
@@ -72,6 +72,7 @@ const chercherLivres = async () => {
   }
   try {
     resultats.value = await chercherLivresGoogle(requete.value);
+    console.log(`Nombre de livres trouvés : ${resultats.value.length}`);
   } catch (error) {
     console.error("Error fetching books:", error);
     resultats.value = [];

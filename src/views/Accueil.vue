@@ -1,5 +1,5 @@
 <template>
-  <div :class="[backgroundClass]">
+  <div :class="livres.length === 0 ? 'background-empty' : 'background-full'">
     <BackgroundContainer>
       <div v-if="livres.length === 0">
         <div class="grid grid-cols-2 pt-12 h-screen">
@@ -12,26 +12,13 @@
         </div>
       </div>
 
-      <div v-else class="grid grid-col-3 gap-6 pt-12 h-screen">
+      <div v-else class="grid grid-row-3 gap-6 pt-12 h-screen">
 
         <h1 class="text-8xl m-4 text-left animate-fade-in-down">
           Votre collection
         </h1>
 
-        <splide :options="{
-                type: 'slide',
-                perPage: 4,
-                autoplay: false,
-                gap: '1rem',
-                pagination: true,
-                arrows: true,
-                direction: 'ltr',
-                breakpoints: {
-                  1024: { perPage: 3 },
-                  768: { perPage: 2 },
-                  640: { perPage: 1 },
-                },
-              }">
+        <splide :options="splideOptions">
           <SplideSlide v-for="livre in livres" :key="livre.id">
             <CarteLivre :livre="livre" />
           </SplideSlide>
@@ -55,16 +42,24 @@ import BackgroundContainer from "@/components/BackgroundContainer.vue";
 
 const { livres } = utiliserCollection();
 
+const splideOptions = computed(() => ({
+  type: 'slide',
+  perPage: 4,
+  autoplay: false,
+  gap: '1rem',
+  pagination: true,
+  arrows: true,
+  direction: 'ltr',
+  breakpoints: {
+    1024: { perPage: 3 },
+    768: { perPage: 2 },
+    640: { perPage: 1 },
+  },
+}));
+
 // Vérifiez la longueur de livres
 onMounted(() => {
   console.log("Nombre de livres:", livres.value.length);
-});
-
-const backgroundClass = computed(() => {
-  const className =
-    livres.value.length === 0 ? "background-empty" : "background-full";
-  console.log("Background class:", className); // Vérifiez la valeur de backgroundClass
-  return className;
 });
 </script>
 

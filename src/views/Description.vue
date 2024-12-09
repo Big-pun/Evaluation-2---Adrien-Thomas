@@ -6,7 +6,7 @@
           <h1 class="text-8xl mb-6 text-left animate-fade-in-down"> Description</h1>
 
           <div class="grid grid-cols-3 items-center rounded-lg shadow-lg bg-white bg-opacity-50 p-4">
-            <div class="flex flex-col h-full">
+            <div class="flex flex-col h-full justify-around text-right">
               <p><strong>Auteur(s) :</strong> {{ livre.volumeInfo.authors?.join(', ') }}</p>
               <p><strong>Date de publication :</strong> {{ livre.volumeInfo.publishedDate }}</p>
               <p><strong>ISBN :</strong> {{ livre.volumeInfo.industryIdentifiers?.find(id => id.type ===
