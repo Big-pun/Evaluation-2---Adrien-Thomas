@@ -17,7 +17,7 @@
               <splide :options="splideOptions">
                 <splide-slide v-for="livre in resultats" :key="livre.id">
                   <div @click="ajouterLivreEtEffacerResultats(livre)"
-                    class="p-6 bg-white shadow-lg rounded-lg text-center cursor-pointer hover:shadow-xl transition-shadow duration-300">
+                    class="p-6 bg-white bg-opacity-50 shadow-lg rounded-lg text-center cursor-pointer hover:shadow-xl transition-shadow duration-300">
                     <img :src="livre.volumeInfo.imageLinks?.thumbnail || '@/assets/placeholder.jpg'" 
                       :alt="livre.volumeInfo.title" class="h-48 mb-4 rounded object-cover mx-auto" />
                     <h2 class="text-xl font-semibold mb-2">{{ livre.volumeInfo.title }}</h2>
@@ -119,16 +119,6 @@ const ajouterLivreEtEffacerResultats = (livre) => {
 
 .animate-fade-in-up {
   animation: fadeInUp 2s ease-out;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
 }
 
 .background {
