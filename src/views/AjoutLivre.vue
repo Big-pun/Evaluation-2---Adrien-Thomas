@@ -3,7 +3,7 @@
     <BackgroundContainer>
       <div class="mx-auto grid grid-cols-12">
         <div class="col-span-12 h-screen">
-          <div class="pt-12">
+          <div class="pt-12 px-4">
             <input v-model="requete" @input="chercherLivres" placeholder="Rechercher un livre par titre"
               class="h-fit text-black w-full p-3 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
           </div>
@@ -15,7 +15,7 @@
 
             <div v-if="resultats.length > 0" class="container">
               <splide :options="{
-                type: 'loop',
+                type: 'slide',
                 perPage: 4,
                 autoplay: false,
                 gap: '1rem',
@@ -28,7 +28,7 @@
                   640: { perPage: 1 },
                 },
               }">
-                <splide-slide v-for="livre in resultats" :key="livre.id" class="">
+                <splide-slide v-for="livre in resultats" :key="livre.id">
                   <div @click="ajouterLivreEtEffacerResultats(livre)"
                     class="p-6 bg-white shadow-lg rounded-lg text-center cursor-pointer hover:shadow-xl transition-shadow duration-300">
                     <img :src="livre.volumeInfo.imageLinks?.thumbnail || '/placeholder.jpg'" 
@@ -42,7 +42,7 @@
                 Aucun résultat trouvé
               </p>
 
-            <p class="text-8xl mb-32 self-end text-right animate-fade-in-up">
+            <p class="text-8xl p-4 mb-32 self-end text-right animate-fade-in-up">
               à la collection
             </p>
           </div>

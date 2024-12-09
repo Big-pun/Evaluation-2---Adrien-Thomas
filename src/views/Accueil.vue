@@ -32,13 +32,13 @@
                   640: { perPage: 1 },
                 },
               }">
-          <SplideSlide v-for="livre in livres" :key="livre.id">
+          <SplideSlide v-for="livre in livres" :key="livre.id" class="flex justify-center items-center">
             <CarteLivre :livre="livre" />
           </SplideSlide>
         </Splide>
 
         <p class="text-8xl m-4 self-end text-right animate-fade-in-up">
-          contient {{ livres.length }} livres.
+            contient {{ livres.length }} livre<span v-if="livres.length > 1">s</span>.
         </p>
       </div>
     </BackgroundContainer>
@@ -93,6 +93,11 @@ const backgroundClass = computed(() => {
   top: 0;
   left: 0;
   z-index: -1;
+}
+
+.splide__list{
+  justify-content: center;
+  align-items: center;
 }
 
 @keyframes fadeInDown {
