@@ -32,7 +32,7 @@
                   640: { perPage: 1 },
                 },
               }">
-          <SplideSlide v-for="livre in livres" :key="livre.id" class="flex justify-center items-center">
+          <SplideSlide v-for="livre in livres" :key="livre.id">
             <CarteLivre :livre="livre" />
           </SplideSlide>
         </Splide>

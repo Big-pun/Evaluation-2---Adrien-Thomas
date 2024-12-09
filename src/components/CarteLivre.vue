@@ -7,7 +7,7 @@
         <span v-if="livre.lu" class="text-green-500">✔</span>
       </h2>
       <p class="text-gray-700 mb-4">{{ livre.volumeInfo.authors?.join(', ') }}</p>
-      <div class="mt-auto">
+      <div class="mt-auto space-y-4">
         <button v-if="!livre.lu" @click.stop.prevent="changerEtatLectureHandler" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
           Marquer comme lu
         </button>
