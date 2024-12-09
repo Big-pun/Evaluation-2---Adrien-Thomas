@@ -13,7 +13,7 @@
               Ajouter un livre
             </h1>
 
-            <div v-if="resultats.length > 0" class="container">
+            <div v-if="resultats.length > 0" class="container p-12">
               <splide :options="{
                 type: 'slide',
                 perPage: 4,
