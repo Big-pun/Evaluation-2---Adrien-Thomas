@@ -2,11 +2,11 @@
   <div class="background">
     <BackgroundContainer>
       <div class="grid grid-cols-12">
-        <div class="col-span-8 col-start-3 p-4 pt-12" v-if="livre">
+        <div class="col-span-6 col-start-4 rounded-lg shadow-lg p-4 mt-24 bg-white" v-if="livre">
         <h1 class="text-3xl font-bold mb-6 text-center">{{ livre.volumeInfo.title }}</h1>
         <img :src="livre.volumeInfo.imageLinks?.thumbnail" :alt="livre.volumeInfo.title"
           class="mb-6 max-w-xs mx-auto rounded shadow-lg" />
-        <div class="text-left space-y-4 max-w-prose mx-auto">
+        <div class="text-sm text-left space-y-4 mx-auto">
           <p><strong>Auteur(s) :</strong> {{ livre.volumeInfo.authors?.join(', ') }}</p>
           <p><strong>Date de publication :</strong> {{ livre.volumeInfo.publishedDate }}</p>
           <p><strong>Description :</strong> {{ livre.volumeInfo.description }}</p>
@@ -41,7 +41,7 @@ watchEffect(() => {
 
 <style scoped>
 .background {
-  background-image: url("public/bibliotheque.avif");
+  background-image: url("@/assets/bibliotheque.avif");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

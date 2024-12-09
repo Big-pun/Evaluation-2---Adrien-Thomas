@@ -14,24 +14,11 @@
             </h1>
 
             <div v-if="resultats.length > 0" class="container p-12">
-              <splide :options="{
-                type: 'slide',
-                perPage: 4,
-                autoplay: false,
-                gap: '1rem',
-                pagination: true,
-                arrows: true,
-                direction: 'ltr',
-                breakpoints: {
-                  1024: { perPage: 3 },
-                  768: { perPage: 2 },
-                  640: { perPage: 1 },
-                },
-              }">
+              <splide :options="splideOptions">
                 <splide-slide v-for="livre in resultats" :key="livre.id">
                   <div @click="ajouterLivreEtEffacerResultats(livre)"
                     class="p-6 bg-white shadow-lg rounded-lg text-center cursor-pointer hover:shadow-xl transition-shadow duration-300">
-                    <img :src="livre.volumeInfo.imageLinks?.thumbnail || '/placeholder.jpg'" 
+                    <img :src="livre.volumeInfo.imageLinks?.thumbnail || '@/assets/placeholder.jpg'" 
                       :alt="livre.volumeInfo.title" class="h-48 mb-4 rounded object-cover mx-auto" />
                     <h2 class="text-xl font-semibold mb-2">{{ livre.volumeInfo.title }}</h2>
                   </div>
@@ -61,6 +48,20 @@ import {Splide, SplideSlide } from "@splidejs/vue-splide";
 import '@splidejs/vue-splide/css';
 
 const requete = ref("");
+const splideOptions = {
+  type: 'slide',
+  perPage: 4,
+  autoplay: false,
+  gap: '1rem',
+  pagination: true,
+  arrows: true,
+  direction: 'ltr',
+  breakpoints: {
+    1024: { perPage: 3 },
+    768: { perPage: 2 },
+    640: { perPage: 1 },
+  },
+};
 const resultats = ref([]);
 const { ajouterLivre } = utiliserCollection();
 
@@ -69,14 +70,22 @@ const chercherLivres = async () => {
     resultats.value = [];
     return;
   }
-  resultats.value = await chercherLivresGoogle(requete.value);
+  try {
+    resultats.value = await chercherLivresGoogle(requete.value);
+  } catch (error) {
+    console.error("Error fetching books:", error);
+    resultats.value = [];
+  }
 };
 
 const ajouterLivreEtEffacerResultats = (livre) => {
   ajouterLivre(livre);
   resultats.value = [];
   requete.value = "";
+
 };
+
+
 </script>
 
 <style scoped>
