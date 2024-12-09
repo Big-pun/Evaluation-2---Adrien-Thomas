@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex flex-row justify-around space-x-4">
+  <nav class="flex flex-row justify-around">
     <router-link to="/">Accueil</router-link>
     <router-link to="/ajouter">Ajouter un Livre</router-link>
   </nav>

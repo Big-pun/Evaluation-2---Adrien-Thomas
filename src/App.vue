@@ -4,19 +4,19 @@
 </script>
 
 <template>
-  <div class="text-white">
-    <header class="mx-auto fixed container h-16 ">
-      <NavBar class="p-4 " />
+
+    <header class="mx-auto container h-16 ">
+      <NavBar class="p-4" />
     </header>
 
-    <main class="mx-auto pt-20">
+    <main class="mx-auto">
       <router-view v-slot="{ Component }">
         <transition name="fade" mode="out-in">
           <component :is="Component" />
         </transition>
       </router-view>
     </main>
-  </div>
+
 </template>
 
 <style scoped>

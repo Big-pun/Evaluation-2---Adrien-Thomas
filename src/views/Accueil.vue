@@ -1,22 +1,20 @@
 <template>
-    <div :class="[backgroundClass, 'col-span-12']">
-      <div
-        class="bg-slate-600 bg-opacity-70 h-full w-full">
-      <div
-        class="bg-slate-200 bg-opacity-10 h-full w-full container mx-auto"
-      >
-        <div v-if="livres.length === 0">
-          <div class="grid grid-cols-2 h-screen pt-12">
-            <p class="text-8xl m-4 text-left animate-fade-in-down">
+  <div :class="[backgroundClass]">
+    <BackgroundContainer>
+      <div class="grid grid-cols-12">
+
+        <div v-if="livres.length === 0" class="col-span-12">
+          <div class="grid grid-cols-2 pt-12 h-screen">
+            <h1 class="text-8xl m-4 text-left animate-fade-in-down">
               Votre collection
-            </p>
+            </h1>
             <p class="text-8xl m-4 self-end text-right animate-fade-in-up">
               est vide.
             </p>
           </div>
         </div>
 
-        <div v-else class="flex flex-wrap justify-center gap-6 pt-12">
+        <div v-else class="flex flex-wrap justify-center gap-6 pt-12 h-screen">
           <CarteLivre
             v-for="livre in livres"
             :key="livre.id"
@@ -24,8 +22,9 @@
             class="relative z-10"
           />
         </div>
+
       </div>
-    </div>
+    </BackgroundContainer>
   </div>
 </template>
 
@@ -33,6 +32,7 @@
   import { ref, computed, onMounted } from "vue";
   import CarteLivre from "@/components/CarteLivre.vue";
   import { utiliserCollection } from "@/composables/utiliserCollection";
+  import BackgroundContainer from "@/components/BackgroundContainer.vue";
 
   const { livres } = utiliserCollection();
 
@@ -73,7 +73,6 @@
     position: fixed;
     top: 0;
     left: 0;
-    opacity: 0.5;
     z-index: -1;
   }
 
