@@ -70,7 +70,7 @@ const backgroundClass = computed(() => {
 
 <style scoped>
 .background-empty {
-  background-image: url("public/bibliotheque-vide.jpg");
+  background-image: url("@/assets/bibliotheque-vide.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -83,7 +83,7 @@ const backgroundClass = computed(() => {
 }
 
 .background-full {
-  background-image: url("public/bibliotheque.avif");
+  background-image: url("@/assets/bibliotheque.avif");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -98,6 +98,7 @@ const backgroundClass = computed(() => {
 .splide__list{
   justify-content: center;
   align-items: center;
+
 }
 
 @keyframes fadeInDown {

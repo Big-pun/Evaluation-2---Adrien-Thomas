@@ -123,7 +123,7 @@ const ajouterLivreEtEffacerResultats = (livre) => {
 }
 
 .background {
-  background-image: url("/bibliotheque-2.jpg");
+  background-image: url("@/assets/bibliotheque-2.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
