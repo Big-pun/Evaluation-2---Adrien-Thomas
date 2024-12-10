@@ -8,12 +8,12 @@
               class="h-fit text-black w-full p-3 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
           </div>
 
-          <div class="grid grid-row-3 h-full container">
+          <div class="grid grid-row-3 container h-full overflow-visible">
             <h1 class="text-8xl m-4 flex flex-row flex-wrap animate-fade-in-down">
               Ajouter un livre
             </h1>
 
-            <div v-if="resultats.length > 0" class="container p-12">
+            <div v-if="resultats.length > 0" class="container w-full p-12">
               <splide :options="splideOptions">
                 <splide-slide v-for="livre in resultats" :key="livre.id">
                   <div @click="ajouterLivreEtEffacerResultats(livre)"
@@ -61,6 +61,7 @@ const splideOptions = {
     1024: { perPage: 3 },
     768: { perPage: 2 },
     640: { perPage: 1 },
+    0: { perPage: 1 },
   },
 };
 const resultats = ref([]);
