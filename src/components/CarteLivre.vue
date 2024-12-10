@@ -1,7 +1,7 @@
 <template>
   <router-link :to="{ name: 'description', params: { id: livre.id } }" class="block p-4">
     <div class="p-6 bg-white bg-opacity-50 shadow-lg rounded-lg max-w-xs mx-auto text-center flex flex-col transition-transform transform hover:scale-105">
-      <img :src="livre.volumeInfo.imageLinks?.thumbnail" :alt="livre.volumeInfo.title" class="livre-image w-full h-48 mb-4 rounded object-cover" />
+      <img :src="livre.volumeInfo.imageLinks?.thumbnail" :alt="livre.volumeInfo.title" class="w-full h-48 mb-4 rounded object-cover" />
       <h2 class="text-xl font-semibold mb-2">
         {{ livre.volumeInfo.title }}
         <span v-if="livre.lu" class="text-green-500">✔</span>

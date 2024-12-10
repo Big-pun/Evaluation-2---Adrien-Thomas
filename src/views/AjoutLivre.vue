@@ -18,7 +18,7 @@
                 <splide-slide v-for="livre in resultats" :key="livre.id">
                   <div @click="ajouterLivreEtEffacerResultats(livre)"
                     class="p-6 bg-white bg-opacity-50 shadow-lg rounded-lg text-center cursor-pointer hover:shadow-xl transition-shadow duration-300">
-                    <img :src="livre.volumeInfo.imageLinks?.thumbnail || '@/assets/placeholder.jpg'" 
+                    <img :src="livre.volumeInfo.imageLinks?.thumbnail || placeholderImage" 
                       :alt="livre.volumeInfo.title" class="h-48 mb-4 rounded object-cover mx-auto" />
                     <h2 class="text-xl font-semibold mb-2">{{ livre.volumeInfo.title }}</h2>
                   </div>
@@ -46,6 +46,7 @@ import { chercherLivresGoogle } from "@/composables/fetchGoogleBooks";
 import { utiliserCollection } from "@/composables/utiliserCollection";
 import {Splide, SplideSlide } from "@splidejs/vue-splide";
 import '@splidejs/vue-splide/css';
+import placeholderImage from "@/assets/placeholder.png";
 
 const requete = ref("");
 const splideOptions = {
