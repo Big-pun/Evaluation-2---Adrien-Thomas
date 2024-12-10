@@ -90,10 +90,10 @@ onMounted(() => {
   z-index: -1;
 }
 
-.splide__list{
-  justify-content: center;
+.splide__list {
+  justify-content: space-evenly;
   align-items: center;
-
+  margin: 0 auto;
 }
 
 @keyframes fadeInDown {
