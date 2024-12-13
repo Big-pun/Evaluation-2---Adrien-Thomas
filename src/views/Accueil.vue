@@ -12,7 +12,7 @@
         </div>
       </div>
 
-      <div v-else class="grid grid-row-3 gap-6 pt-12 h-screen">
+      <div v-else class="grid grid-row-3 pt-12 h-screen max-w-full">
 
         <h1 class="text-8xl m-4 text-left animate-fade-in-down">
           Votre collection
@@ -52,7 +52,7 @@ const splideOptions = computed(() => ({
   direction: 'ltr',
   breakpoints: {
     1024: { perPage: 3 },
-    768: { perPage: 2 },
+    768: { perPage: 1 },
     640: { perPage: 1 },
   },
 }));

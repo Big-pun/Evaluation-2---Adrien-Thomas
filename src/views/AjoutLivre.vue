@@ -8,8 +8,8 @@
               class="h-fit text-black w-full p-3 border rounded shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
           </div>
 
-          <div class="grid grid-row-3 container h-full overflow-visible">
-            <h1 class="text-8xl m-4 flex flex-row flex-wrap animate-fade-in-down">
+          <div class="grid grid-row-3 container h-full">
+            <h1 class="text-8xl m-4 animate-fade-in-down">
               Ajouter un livre
             </h1>
 
@@ -60,8 +60,8 @@ const splideOptions = {
   breakpoints: {
     1024: { perPage: 3 },
     768: { perPage: 2 },
-    640: { perPage: 1 },
-    0: { perPage: 1 },
+    640: { perPage: 1, gap: '0.5rem' },
+    0: { perPage: 1, gap: '0.25rem' },
   },
 };
 const resultats = ref([]);
@@ -136,4 +136,15 @@ const ajouterLivreEtEffacerResultats = (livre) => {
   left: 0;
   z-index: -1;
 }
+
+.splide {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.splide__slide {
+  width: 100%;
+  box-sizing: border-box;
+}
+
 </style>
