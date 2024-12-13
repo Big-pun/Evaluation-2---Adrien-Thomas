@@ -61,7 +61,6 @@ const splideOptions = {
     1024: { perPage: 3 },
     768: { perPage: 2 },
     640: { perPage: 1, gap: '0.5rem' },
-    0: { perPage: 1, gap: '0.25rem' },
   },
 };
 const resultats = ref([]);
