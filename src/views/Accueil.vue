@@ -12,13 +12,13 @@
         </div>
       </div>
 
-      <div v-else class="grid grid-row-3 pt-12 h-screen max-w-full">
+      <div v-else class="mx-auto grid grid-row-3 pt-12 h-screen container">
 
         <h1 class="text-8xl m-4 text-left animate-fade-in-down">
           Votre collection
         </h1>
 
-        <splide :options="splideOptions">
+        <splide :options="splideOptions" class="container w-screen">
           <SplideSlide v-for="livre in livres" :key="livre.id">
             <CarteLivre :livre="livre" />
           </SplideSlide>
@@ -42,7 +42,7 @@ import BackgroundContainer from "@/components/BackgroundContainer.vue";
 
 const { livres } = utiliserCollection();
 
-const splideOptions = computed(() => ({
+const splideOptions = {
   type: 'slide',
   perPage: 4,
   autoplay: false,
@@ -52,10 +52,13 @@ const splideOptions = computed(() => ({
   direction: 'ltr',
   breakpoints: {
     1024: { perPage: 3 },
-    768: { perPage: 1 },
+    768: { perPage: 2 },
     640: { perPage: 1 },
+    420: { perPage: 1 },
+    325: { perPage: 1 },
+    240: { perPage: 1 },
   },
-}));
+};
 
 // Vérifiez la longueur de livres
 onMounted(() => {

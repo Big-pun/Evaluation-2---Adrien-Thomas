@@ -13,7 +13,7 @@
               Ajouter un livre
             </h1>
 
-            <div v-if="resultats.length > 0" class="container w-full p-12">
+            <div v-if="resultats.length > 0" class="container w-screen p-12 carousel">
               <splide :options="splideOptions">
                 <splide-slide v-for="livre in resultats" :key="livre.id">
                   <div @click="ajouterLivreEtEffacerResultats(livre)"
@@ -60,7 +60,10 @@ const splideOptions = {
   breakpoints: {
     1024: { perPage: 3 },
     768: { perPage: 2 },
-    640: { perPage: 1, gap: '0.5rem' },
+    640: { perPage: 1 },
+    420: { perPage: 1 },
+    325: { perPage: 1 },
+    240: { perPage: 1 },
   },
 };
 const resultats = ref([]);
