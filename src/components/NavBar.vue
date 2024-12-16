@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex flex-row justify-around fixed container">
+  <nav class="flex flex-row justify-around fixed container text-xl">
     <router-link to="/">Accueil</router-link>
     <router-link to="/ajouter">Ajouter un Livre</router-link>
   </nav>

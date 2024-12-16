@@ -2,11 +2,13 @@
   <div class="background">
     <BackgroundContainer>
       <div class="grid grid-cols-12 h-screen">
-        <div class="col-span-12 flex flex-col justify-between p-4 mt-24" v-if="livre">
+        <div  v-if="livre" class="col-span-12 flex flex-col justify-between p-4 pt-12">
           <h1 class="text-8xl mb-6 text-left animate-fade-in-down"> Description</h1>
 
-          <div class="grid grid-cols-3 items-center rounded-lg shadow-lg bg-white bg-opacity-50 p-4">
-            <div class="flex flex-col h-full justify-around text-right">
+          <div class="grid grid-row-3 items-center rounded-lg shadow-lg bg-white bg-opacity-50 p-4">
+            <img :src="livre.volumeInfo.imageLinks?.thumbnail" :alt="livre.volumeInfo.title"
+              class="mb-4 max-w-xs mx-auto " />
+            <div class="flex flex-row h-full justify-around text-right">
               <p><strong>Auteur(s) :</strong> {{ livre.volumeInfo.authors?.join(', ') }}</p>
               <p><strong>Date de publication :</strong> {{ livre.volumeInfo.publishedDate }}</p>
               <p><strong>ISBN :</strong> {{ livre.volumeInfo.industryIdentifiers?.find(id => id.type ===
@@ -14,18 +16,17 @@
               <p><strong>Nombre de pages :</strong> {{ livre.volumeInfo.pageCount }}</p>
               <p><strong>Lu :</strong> {{ livre.lu ? 'Oui' : 'Non' }}</p>
             </div>
-            <img :src="livre.volumeInfo.imageLinks?.thumbnail" :alt="livre.volumeInfo.title"
-              class="mb-6 max-w-xs mx-auto " />
+            
             <div class="text-sm text-left space-y-4 mx-auto">
               <p><strong>Description :</strong> {{ livre.volumeInfo.description }}</p>
 
             </div>
           </div>
 
-          <p class="text-8xl mb-6 text-right animate-fade-in-up">du livre "{{ livre.volumeInfo.title }}"</p>
+          <h2 class="text-8xl mb-6 text-right animate-fade-in-up">du livre "{{ livre.volumeInfo.title }}"</h2>
         </div>
-        <div v-else class="text-center">
-          <p class="text-lg text-gray-700">Livre non trouvé.</p>
+        <div v-else class="col-span-12 text-center pt-12 h-screen">
+          <h1 class="text-8xl animate-fade-in-down text-center mt-36">Livre non trouvé.</h1>
         </div>
       </div>
     </BackgroundContainer>
@@ -43,8 +44,12 @@ const { obtenirLivreParId } = utiliserCollection()
 const livre = ref(null)
 
 watchEffect(() => {
-  livre.value = obtenirLivreParId(route.params.id)
-})
+  if (route.params.id) {
+    livre.value = obtenirLivreParId(route.params.id);
+  } else {
+    livre.value = null;
+  }
+});
 </script>
 
 <style scoped>

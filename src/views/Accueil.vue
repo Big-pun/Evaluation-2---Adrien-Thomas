@@ -6,9 +6,9 @@
           <h1 class="text-8xl m-4 text-left animate-fade-in-down">
             Votre collection
           </h1>
-          <p class="text-8xl m-4 self-end text-right animate-fade-in-up">
+          <h2 class="text-8xl m-4 self-end text-right animate-fade-in-up">
             est vide.
-          </p>
+          </h2>
         </div>
       </div>
 
@@ -24,9 +24,9 @@
           </SplideSlide>
         </Splide>
 
-        <p class="text-8xl m-4 self-end text-right animate-fade-in-up">
+        <h2 class="text-8xl m-4 self-end text-right animate-fade-in-up">
             contient {{ livres.length }} livre<span v-if="livres.length > 1">s</span>.
-        </p>
+        </h2>
       </div>
     </BackgroundContainer>
   </div>
