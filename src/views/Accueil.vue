@@ -37,7 +37,7 @@ import { ref, computed, onMounted } from "vue";
 import { Splide, SplideSlide } from '@splidejs/vue-splide';
 import '@splidejs/splide/dist/css/splide.min.css';
 import CarteLivre from "@/components/CarteLivre.vue";
-import { utiliserCollection } from "@/composables/utiliserCollection";
+import { utiliserCollection } from "@/composables/useCollection";
 import BackgroundContainer from "@/components/BackgroundContainer.vue";
 
 const { livres } = utiliserCollection();

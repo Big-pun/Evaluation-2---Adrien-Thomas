@@ -25,7 +25,7 @@
 <script setup>
 import { ref } from 'vue'
 import placeholderImage from '@/assets/placeholder.png'
-import { utiliserCollection } from '@/composables/utiliserCollection'
+import { utiliserCollection } from '@/composables/useCollection'
 
 const props = defineProps({
   livre: Object

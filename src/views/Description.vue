@@ -36,7 +36,7 @@
 <script setup>
 import { ref, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
-import { utiliserCollection } from '@/composables/utiliserCollection'
+import { utiliserCollection } from '@/composables/useCollection'
 import BackgroundContainer from '@/components/BackgroundContainer.vue';
 
 const route = useRoute()

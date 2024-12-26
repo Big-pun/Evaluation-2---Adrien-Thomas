@@ -48,7 +48,7 @@ import '@splidejs/vue-splide/css';
 
 import backgroundContainer from "@/components/BackgroundContainer.vue";
 import { chercherLivresGoogle } from "@/composables/fetchGoogleBooks";
-import { utiliserCollection } from "@/composables/utiliserCollection";
+import { utiliserCollection } from "@/composables/useCollection";
 import placeholderImage from "@/assets/placeholder.png";
 
 const requete = ref("");
