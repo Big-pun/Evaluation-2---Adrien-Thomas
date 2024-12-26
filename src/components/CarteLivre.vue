@@ -8,8 +8,10 @@
       </h2>
       <p class="text-gray-700 mb-4">{{ livre.volumeInfo.authors?.join(', ') }}</p>
       <div class="space-y-4">
-        <button v-if="!livre.lu" @click.stop.prevent="changerEtatLectureHandler" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-          Marquer comme lu
+        <button 
+        @click.stop.prevent="changerEtatLectureHandler" 
+        :class="livre.lu ? 'px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600' : 'px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600'">
+          {{ livre.lu ? 'Marquer comme non lu' : 'Marquer comme lu' }}
         </button>
         <br/>
         <button @click.stop.prevent="confirmerSuppression" class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 ml-2">

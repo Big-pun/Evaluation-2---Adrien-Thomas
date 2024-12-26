@@ -10,7 +10,7 @@ export function utiliserCollection() {
     const changerEtatLecture = (id) => {
         const livre = livres.value.find(l => l.id === id)
         if (livre) {
-            livre.lu = true
+            livre.lu = !livre.lu
         }
     }
 
