@@ -1,8 +1,8 @@
 <template>
   <div class="background">
-    <BackgroundContainer>
+    <background-container>
       <div class="grid grid-cols-12 h-screen">
-        <div  v-if="livre" class="col-span-12 flex flex-col justify-between p-4 pt-12">
+        <div v-if="livre" class="col-span-12 flex flex-col justify-between p-4 pt-12">
           <h1 class="text-8xl mb-6 text-left animate-fade-in-down"> Description</h1>
 
           <div class="grid grid-row-3 items-center rounded-lg shadow-lg bg-white bg-opacity-50 p-4">
@@ -29,7 +29,7 @@
           <h1 class="text-8xl animate-fade-in-down text-center mt-36">Livre non trouvé.</h1>
         </div>
       </div>
-    </BackgroundContainer>
+    </background-container>
   </div>
 </template>
 

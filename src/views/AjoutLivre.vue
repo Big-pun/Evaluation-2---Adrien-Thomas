@@ -1,6 +1,6 @@
 <template>
   <div class="background">
-    <BackgroundContainer>
+    <background-container>
       <div class="mx-auto grid grid-cols-12">
         <div class="col-span-12 h-screen">
           <div class="pt-16 px-4">
@@ -18,7 +18,7 @@
                 <splide-slide v-for="livre in resultats" :key="livre.id">
                   <div @click="ajouterLivreEtEffacerResultats(livre)"
                     class="p-6 bg-white bg-opacity-50 shadow-lg rounded-lg text-center cursor-pointer hover:shadow-xl transition-shadow duration-300">
-                    <img :src="livre.volumeInfo.imageLinks?.thumbnail || placeholderImage" :alt="livre.volumeInfo.title"
+                    <img :src="getImageSrc(livre)" :alt="livre.volumeInfo.title"
                       class="h-48 mb-4 rounded object-cover mx-auto" />
                     <h2 class="text-xl font-semibold mb-2">
                       {{ truncateText(livre.volumeInfo.title, 30) }}
@@ -37,17 +37,18 @@
           </div>
         </div>
       </div>
-    </BackgroundContainer>
+    </background-container>
   </div>
 </template>
 
 <script setup>
-import BackgroundContainer from "@/components/BackgroundContainer.vue";
 import { ref } from "vue";
-import { chercherLivresGoogle } from "@/composables/fetchGoogleBooks";
-import { utiliserCollection } from "@/composables/utiliserCollection";
 import { Splide, SplideSlide } from "@splidejs/vue-splide";
 import '@splidejs/vue-splide/css';
+
+import backgroundContainer from "@/components/BackgroundContainer.vue";
+import { chercherLivresGoogle } from "@/composables/fetchGoogleBooks";
+import { utiliserCollection } from "@/composables/utiliserCollection";
 import placeholderImage from "@/assets/placeholder.png";
 
 const requete = ref("");
@@ -99,6 +100,9 @@ const truncateText = (text, maxLength) => {
   return text.substring(0, maxLength) + '...';
 };
 
+const getImageSrc = (livre) => {
+  return livre.volumeInfo.imageLinks?.thumbnail || placeholderImage;
+};
 </script>
 
 <style scoped>
